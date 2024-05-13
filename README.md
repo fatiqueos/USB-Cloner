@@ -1,4 +1,4 @@
-# USB Sürücüsünden Dosya Kopyalama Betiği
+# USB Sürücüsünden Gizlice Dosya Kopyalama Betiği
 
 Bu Python betiği, bir USB sürücüsündeki dosyaları belirli bir gizli klasöre kopyalayan ve yedekleyen bir araçtır.
 Araç, belirli aralıklarla USB sürücüsündeki verileri yedeklemek için kullanılabilir. Ancak, bu betiğin kötü amaçlı kullanımı izinsiz veri kopyalamaya yöneliktir ve yasadışı etkinliklerde kullanılması kesinlikle önerilmez.

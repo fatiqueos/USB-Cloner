@@ -14,9 +14,6 @@ psutil kütüphanesini yüklemek için terminal veya komut istemcisinde aşağı
 
 pip install psutil
 
-markdown
-
-
 ## Kullanım
 
 1. **Gereksinimleri Kontrol Edin:** Betiği çalıştırmadan önce `psutil` kütüphanesini yüklediğinizden emin olun.

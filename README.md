@@ -35,4 +35,4 @@ pip install psutil
 ## İletişim Bilgileri
 
 - Telegram: [t.me/fatiqueos](https://t.me/fatiqueos)
-- Discord: fatiqueos#0
+- Discord: [fatiqueos](https://discord.com/users/1178837358523719704)

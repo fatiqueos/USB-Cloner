@@ -27,9 +27,9 @@ pip install psutil
 
 ## Important Notes
 
--  Permissions:** You may need elevated permissions (root privileges) to run the script, especially if your operating system has restrictions on access to file systems.
+-  **Permissions:** You may need elevated permissions (root privileges) to run the script, especially if your operating system has restrictions on access to file systems.
 
--  File Access:** Make sure the USB drive is connected and files can be copied.
+-  **File Access:** Make sure the USB drive is connected and files can be copied.
 
 - **Stop the script:** You can stop the script by pressing `Ctrl + C` on the keyboard.
 

@@ -1,5 +1,5 @@
  
-# Script to Secretly Copy Files from a USB Drive
+# USB Cloner
 
 This Python script is a tool that copies and backs up files on a USB drive to a specific hidden folder.
 The tool can be used to back up data on the USB drive at certain intervals. However, the malicious use of this script is for unauthorized data copying and is strongly discouraged for use in illegal activities.

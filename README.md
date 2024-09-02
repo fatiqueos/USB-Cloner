@@ -1,41 +1,39 @@
- 
+  
 # USB Cloner
 
-This Python script is a tool that copies and backs up files on a USB drive to a specific hidden folder.
-The tool can be used to back up data on the USB drive at certain intervals. However, the malicious use of this script is for unauthorized data copying and is strongly discouraged for use in illegal activities.
-Users should only use this tool for legal and ethical purposes. Please use it only on your own USB drives and with legal permissions to ensure privacy and security of data.
+Bu Python betiği, bir USB sürücüsündeki dosyaları belirli bir gizli klasöre kopyalayan ve yedekleyen bir araçtır.
+Araç, USB sürücüsündeki verileri belirli aralıklarla yedeklemek için kullanılabilir. Ancak, bu betiğin kötü amaçlı kullanımı yetkisiz veri kopyalama içindir ve yasa dışı faaliyetlerde kullanılması kesinlikle önerilmez.
+Kullanıcılar bu aracı yalnızca yasal ve etik amaçlar için kullanmalıdır. Verilerin gizliliğini ve güvenliğini sağlamak için lütfen yalnızca kendi USB sürücülerinizde ve yasal izinlerle kullanın.
 
-## Requirements
+## Gereksinimler
 
-The following requirements must be met for this script to work:
+Bu betiğin çalışması için aşağıdaki gereksinimler karşılanmalıdır:
 - Python 3
-- psutil library
+- psutil kütüphanesi
 
-To install the psutil library, you can run the following command in the terminal or command prompt:
+## Kullanım
 
-pip install psutil
+1. **Gereksinimleri Kontrol Edin:** Betiği çalıştırmadan önce `psutil` kütüphanesini yüklediğinizden emin olun.
 
-## Usage
+2. **Komut dosyasını çalıştırın:** Komut dosyasını çalıştırdığınızda, USB sürücü bağlı değilse veya erişilemiyorsa uygun bir mesaj alacaksınız.
 
-1. **Check Requirements:** Make sure you have installed the `psutil` library before running the script.
+3. **USB Sürücü Bağlandığında:** USB sürücü bağlandığında, komut dosyası sürücüdeki dosyaları belirlenen hedef klasöre kopyalayacaktır.
 
-2. **Run the script:** When you run the script, you will get an appropriate message if the USB drive is not connected or inaccessible.
+4. **Kopyalama İşlemi:** Kopyalama işlemi belirli aralıklarla tekrarlanacaktır (varsayılan olarak 5 saniye).
 
-3. **When the USB Drive is Connected:** When the USB drive is connected, the script will copy the files on the drive to the designated destination folder.
+## Önemli Notlar
 
-4. **Copy Process:** The copy process will be repeated at certain intervals (5 seconds by default).
+-  **İzinler:** Özellikle işletim sisteminizin dosya sistemlerine erişim konusunda kısıtlamaları varsa, betiği çalıştırmak için yükseltilmiş izinlere (kök ayrıcalıkları) ihtiyacınız olabilir.
 
-## Important Notes
+-  **Dosya Erişimi:** USB sürücüsünün bağlı olduğundan ve dosyaların kopyalanabildiğinden emin olun.
 
--  **Permissions:** You may need elevated permissions (root privileges) to run the script, especially if your operating system has restrictions on access to file systems.
+-  **Komut dosyasını durdurun:** Klavyede `Ctrl + C` tuşlarına basarak komut dosyasını durdurabilirsiniz.
 
--  **File Access:** Make sure the USB drive is connected and files can be copied.
-
-- **Stop the script:** You can stop the script by pressing `Ctrl + C` on the keyboard.
-
-## Contact Information
+## İletişim Bilgileri
 
 - Telegram: [t.me/fatiqueos](https://t.me/fatiqueos)
 - Discord: [fatiqueos](https://discord.com/users/1178837358523719704)
+
+
 
 

@@ -1,15 +1,15 @@
 @echo off
-REM This script disables the option to show hidden folders in Windows.
+REM Bu betik, Windows'ta gizli klasorleri gostermek secenegini devre disi birakır.
 
-REM Registry key for the hidden folders setting
+REM Gizli klasorler ayari icin kayit defteri anahtari
 set RegKey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
 set RegValue=Hidden
 
-REM Check the current setting in the registry
+REM Kayit defterindeki mevcut ayari kontrol et
 reg query "%RegKey%" /v "%RegValue%" | findstr "0x1" >nul
 if %errorlevel% equ 0 (
-    REM If the setting is on, turn it off
+    REM Eger ayar aciksa, kapat
     reg add "%RegKey%" /v "%RegValue%" /t REG_DWORD /d 0 /f >nul
 )
 
-echo Hidden folders setting has been turned off.
+echo Gizli klasorler ayari kapatildi.

